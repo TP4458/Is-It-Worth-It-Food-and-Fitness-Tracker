@@ -21,6 +21,18 @@ When i load the page, i am presented with a section where i can calculate how ma
 https://developer.edamam.com/edamam-docs-recipe-api
 https://api-ninjas.com/api/caloriesburned
 
+## Acceptance Criteria
 
+```
+GIVEN I am wanting to have a meal
+WHEN I click the search recipe button
+THEN a recipe will be displayed with cooking instructions
+WHEN meal is displayed
+THEN I am presented with the calories within the meal
+WHEN I input calories to calorie burner
+THEN I am shown a list of exercises
+WHEN exercise is selected
+THEN I am shown how long it will take to burn off calories
+```
 
 

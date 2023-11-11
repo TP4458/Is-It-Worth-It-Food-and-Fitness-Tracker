@@ -1,3 +1,8 @@
+var formEl = document.getElementById("#form");
+var searchBarEl = document.getElementById("#search-bar");
+var buttonEl = document.getElementById("#search");
+
+var recipeContainerEl = document.getElementById("#container")
 var caloriesEl = document.getElementById("#calories")
 var recipeEl = document.getElementById("#recipe")
 var nutritionEl = document.getElementById("#nutrition")

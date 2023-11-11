@@ -1,7 +1,16 @@
+var formEl = document.getElementById("#form");
+var searchBarEl = document.getElementById("#search-bar");
+var buttonEl = document.getElementById("#search");
 
-var APIKeyCalorie = "XM4s0oBD3ldwaTLv/1K7kA==BF0iO8VCTDuea6KB";
-var APIKeyRecipe = "9b24c484735b73e829b7cf8917539b12";
-var APIRecipeId = "b0bd96d2";
+var recipeContainerEl = document.getElementById("#container")
+var caloriesEl = document.getElementById("#calories")
+var recipeEl = document.getElementById("#recipe")
+var nutritionEl = document.getElementById("#nutrition")
+var photoEl = document.getElementById("#photo")
+
+var APIKeyCalorie = "XM4s0oBD3ldwaTLv/1K7kA==BF0iO8VCTDuea6KB"
+var APIKeyRecipe = "9b24c484735b73e829b7cf8917539b12"
+var APIRecipeId = "b0bd96d2"
 
 function fetchRecipe() {
     // User input will come from input element / event listener on button element

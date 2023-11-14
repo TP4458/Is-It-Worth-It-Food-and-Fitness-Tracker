@@ -52,18 +52,45 @@ function fetchRecipe() {
  fetchCaloriesBurned();
  
  buttonEl.addEventListener("click", function(event) {
-   event.preventDefault();
-   userInput=formEl.value
-   console.log(userInput)
- 
-   if (userInput==="") {
-     return
-   }else{
-     history.push(userInput)
-     console.log(history)
-     localStorage.setItem("search-history", JSON.stringify(userInput))
-     fetchRecipe(userInput)
-   }
- 
- })
- 
+  event.preventDefault();
+  userInput=formEl.value
+  console.log(history)
+  if (userInput==="") {
+    return
+  }else{
+    history.push(userInput)
+    localStorage.setItem("search-history", JSON.stringify(history))
+
+  }
+  fetchRecipe()
+  searchHistory()
+})
+
+
+$(document).on("click", ".past-recipe", pastSearch);
+function pastSearch() {
+    userInput = $(this).attr("data-recipe")
+    fetchRecipe()
+}
+
+//get seacrh results from locakl storage
+function searchHistory(){
+    let searchHistory = localStorage.getItem("search-history");
+    if (searchHistory) {
+        history = JSON.parse(searchHistory);
+        console.log(history)
+        dispHistory(history)
+    }
+}
+
+let historyDispEl=$("#history")
+//display past search results
+function dispHistory(pastRecipes) {
+    historyDispEl.empty()
+    for (let i = 0; i < pastRecipes.length; i++) {
+        const pastRecipe = pastRecipes[i];
+        console.log(pastRecipe)
+        historyDispEl.append($(`<button class="past-recipe btn" data-recipe="${pastRecipe}">`).text(pastRecipe));
+        }
+    }
+searchHistory()

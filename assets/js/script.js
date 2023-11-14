@@ -1,17 +1,17 @@
-var searchBarEl = document.getElementById("#search-bar");
-let buttonEl = document.querySelector("#search");
-var formEl = document.querySelector("#search-bar");
-var recipeContainerEl = document.getElementById("#container")
-var caloriesEl = document.getElementById("#calories")
-var recipeEl = document.getElementById("#recipe")
-var nutritionEl = document.getElementById("#nutrition")
-var photoEl = document.getElementById("#photo")
+const searchBarEl = document.getElementById("search-bar");
+const buttonEl = document.querySelector("#search");
+const formEl = document.querySelector("#search-bar");
+const recipeContainerEl = document.getElementById("container")
+const caloriesEl = document.getElementById("calories")
+const recipeEl = document.getElementById("recipe")
+const nutritionEl = document.getElementById("nutrition")
+const photoEl = document.getElementById("photo")
 let userInput=""
 let history=[];
 
-var APIKeyCalorie = "XM4s0oBD3ldwaTLv/1K7kA==BF0iO8VCTDuea6KB"
-var APIKeyRecipe = "9b24c484735b73e829b7cf8917539b12"
-var APIRecipeId = "b0bd96d2"
+const APIKeyCalorie = "XM4s0oBD3ldwaTLv/1K7kA==BF0iO8VCTDuea6KB"
+const APIKeyRecipe = "9b24c484735b73e829b7cf8917539b12"
+const APIRecipeId = "b0bd96d2"
 
 function fetchRecipe() {
     // User input will come from input element / event listener on button element

@@ -89,7 +89,7 @@ function dispHistory(pastRecipes) {
     for (let i = 0; i < pastRecipes.length; i++) {
         const pastRecipe = pastRecipes[i];
         console.log(pastRecipe)
-        historyDispEl.append($(`<button class="past-recipe btn" data-recipe="${pastRecipe}">`).text(pastRecipe));
+        historyDispEl.append($(`<button class="past-recipe btn bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" data-recipe="${pastRecipe}">`).text(pastRecipe));
         }
     }
 searchHistory()

@@ -22,6 +22,7 @@ function fetchRecipe() {
        console.log(data) 
        for (var i = 0; i <=data.hits.length; i++) {
          recipeContainerEl.innerHTML = `
+         <p>"${data.hits[i].recipe.label}"</p>;
          <img src="${data.hits[i].recipe.image}"/>;
          <p>Calories: ${data.hits[i].recipe.calories}</p>;
          <p><a href="${data.hits[i].recipe.url}">Link to Full Recipe</a></p>
@@ -30,8 +31,6 @@ function fetchRecipe() {
      })
  }
 
-//  <p>Calories: $data.hits[i].recipe.calories/$data.hits[i].recipe.yield</p>; to get portion size? 
-// Use Math.Floor also? Curly brackets removed from above statement to full commenting functionality
 
  fetchRecipe();
  

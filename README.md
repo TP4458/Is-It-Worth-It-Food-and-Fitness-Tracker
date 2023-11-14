@@ -14,7 +14,8 @@ I can also navigate from all categories to different options by opening up the d
 Below this i am shown the amount of calories it will take to burn off this particular recipe
 Then further down, I am shown popular recipes
 Finally, i can contact the company by clicking on "contact us" or redirecting to their social media
-
+  
+  
 
 # Wireframe
 

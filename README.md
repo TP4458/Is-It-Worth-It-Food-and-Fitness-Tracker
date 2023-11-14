@@ -7,10 +7,15 @@ Ever wondered how long that cookie would take to burn off through exercise? Cons
 Our project allows a user to simply input a snack, meal, or favourite type of food, and then returns a two-fold response. The first feature serves to retrieve and display potential recipes for the user to make use of. The application will then tell you how long it would take to burn off the selected meal or snack through exercise based off the calories contained in that food, so that an informed decision can be made as to whether or not its nutritional value aligns with their current health and fitness goals (aka, is it ‘worth it’?).
 
 # User Story
-As a user i want to load the webpage and be presented with an API where i can choose recipes
-When I click on the recipe i want it to show me a list of ingredients and instructions on how to make the recipe
-AND
-When i load the page, i am presented with a section where i can calculate how many calories i will burn off doing a particular exercise based on my weight, height and gender
+As a user, when i load the web page i am presented with a recipe API
+Where i search the recipe  by clicking on the button,
+I am shown the recipe with the instructions in the middle, a photo of the recipe on the left, and the calories / macronutrients on the left
+I can also navigate from all categories to different options by opening up the drop down menu
+Below this i am shown the amount of calories it will take to burn off this particular recipe
+Then further down, I am shown popular recipes
+Finally, i can contact the company by clicking on "contact us" or redirecting to their social media
+9:20
+tried to add to the user story and expand it
 
 # Wireframe
 

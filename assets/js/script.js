@@ -31,7 +31,6 @@ function fetchRecipe() {
      })
  }
 
-
  fetchRecipe();
  
  function fetchCaloriesBurned() {

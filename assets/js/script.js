@@ -15,22 +15,21 @@ const APIRecipeId = "b0bd96d2"
 
 function fetchRecipe() {
   
-    var recipeUrl = `https://api.edamam.com/search?q=${userInput}&app_id=${APIRecipeId}&app_key=${APIKeyRecipe}&from=0&to=3`;
+    var recipeUrl = `https://api.edamam.com/search?q=${userInput}&app_id=${APIRecipeId}&app_key=${APIKeyRecipe}&from=0&to=1`;
     fetch(recipeUrl)
      .then(response => response.json())
      .then(data => { 
        console.log(data) 
        for (var i = 0; i <=data.hits.length; i++) {
          recipeContainerEl.innerHTML = `
-         <p>"${data.hits[i].recipe.label}"</p>;
          <img src="${data.hits[i].recipe.image}"/>;
-         <p>Calories: ${data.hits[i].recipe.calories}</p>;
-         <p><a href="${data.hits[i].recipe.url}">Link to Full Recipe</a></p>
+         <p class=>Total Calories: ${data.hits[i].recipe.calories}</p>;
+         <p class=>Calories per serving: ${Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield)}</p>;
+         <p class=><a href="${data.hits[i].recipe.url}" target="_blank">Link to Full Recipe & Further Nutritional Information</a></p>
          `  
          }
      })
  }
-
 
  fetchRecipe();
  

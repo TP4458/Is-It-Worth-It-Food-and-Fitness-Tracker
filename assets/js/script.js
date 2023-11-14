@@ -22,10 +22,10 @@ function fetchRecipe() {
        console.log(data) 
        for (var i = 0; i <=data.hits.length; i++) {
          recipeContainerEl.innerHTML = `
-         <p>"${data.hits[i].recipe.label}"</p>;
-         <img src="${data.hits[i].recipe.image}"/>;
-         <p class=>Total Calories: ${data.hits[i].recipe.calories}</p>;
-         <p class=>Calories per serving: ${Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield)}</p>;
+         <p>"${data.hits[i].recipe.label}"</p>
+         <img src="${data.hits[i].recipe.image}"/>
+         <p class=>Total Calories: ${Math.floor(data.hits[i].recipe.calories)}</p>
+         <p class=>Calories per serving: ${Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield)}</p>
          <p class=><a href="${data.hits[i].recipe.url}" target="_blank">Link to Full Recipe & Further Nutritional Information</a></p>
          `  
          }

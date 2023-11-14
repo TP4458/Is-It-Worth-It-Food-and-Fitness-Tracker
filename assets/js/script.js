@@ -22,11 +22,11 @@ function fetchRecipe() {
        console.log(data) 
        for (var i = 0; i <=data.hits.length; i++) {
          recipeContainerEl.innerHTML = `
-         <p>"${data.hits[i].recipe.label}"</p>
-         <img src="${data.hits[i].recipe.image}"/>
-         <p class=>Total Calories: ${Math.floor(data.hits[i].recipe.calories)}</p>
-         <p class=>Calories per serving: ${Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield)}</p>
-         <p class=><a href="${data.hits[i].recipe.url}" target="_blank">Link to Full Recipe & Further Nutritional Information</a></p>
+         <h2 class="flex items-center justify-center py-1 text-2xl font-extrabold dark:text-white">"${data.hits[i].recipe.label}"</h2>
+         <img class="py-2 px-4" src="${data.hits[i].recipe.image}"/>
+         <p class=font-bold flex items-center justify-center>Total Calories: ${Math.floor(data.hits[i].recipe.calories)}</p>
+         <p class=font-bold flex items-center justify-center>Calories per serving: ${Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield)}</p>
+         <p class=font-bold flex items-center justify-center"><a class = "underline dark:text-white hover:text-blue-800" href="${data.hits[i].recipe.url}" target="_blank">Link to Full Recipe & Further Nutritional Information</a></p>
          `  
          }
      })
@@ -72,7 +72,7 @@ function pastSearch() {
     fetchRecipe()
 }
 
-//get seacrh results from locakl storage
+//get seacrh results from local storage
 function searchHistory(){
     let searchHistory = localStorage.getItem("search-history");
     if (searchHistory) {
@@ -89,7 +89,7 @@ function dispHistory(pastRecipes) {
     for (let i = 0; i < pastRecipes.length; i++) {
         const pastRecipe = pastRecipes[i];
         console.log(pastRecipe)
-        historyDispEl.append($(`<button class="past-recipe btn bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" data-recipe="${pastRecipe}">`).text(pastRecipe));
+        historyDispEl.append($(`<button class="past-recipe btn bg-white text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded dark:hover:bg-gray-300" data-recipe="${pastRecipe}">`).text(pastRecipe));
         }
     }
 searchHistory()

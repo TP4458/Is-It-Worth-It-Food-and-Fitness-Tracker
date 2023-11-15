@@ -1,12 +1,13 @@
 const searchBarEl = document.getElementById("search-bar");
 const buttonEl = document.querySelector("#search");
 const formEl = document.querySelector("#search-bar");
-const recipeContainerEl = document.getElementById("container")
-const timeToBurnContainerEl = document.getElementById("container2")
-const caloriesEl = document.getElementById("calories")
-const recipeEl = document.getElementById("recipe")
-const nutritionEl = document.getElementById("nutrition")
-const photoEl = document.getElementById("photo")
+const ParentContainerEl = document.getElementById("toggle-visibility");
+const recipeContainerEl = document.getElementById("container");
+const timeToBurnContainerEl = document.getElementById("container2");
+const caloriesEl = document.getElementById("calories");
+const recipeEl = document.getElementById("recipe");
+const nutritionEl = document.getElementById("nutrition");
+const photoEl = document.getElementById("photo");
 let userInput=""
 let history=[];
 
@@ -25,7 +26,7 @@ function fetchRecipe() {
        console.log(data) 
        var i;
        console.log(data.hits)
-       for (i = 0; i <=data.hits.length; i++) {
+       for (i = 0; i <=data.hits.length; i++) {      
          recipeContainerEl.innerHTML = `
          <h2 class="flex items-center justify-center py-1 text-2xl font-extrabold dark:text-white">"${data.hits[i].recipe.label}"</h2>
          <img class="py-2 px-4" src="${data.hits[i].recipe.image}"/>
@@ -42,6 +43,7 @@ function fetchRecipe() {
  fetchRecipe();
  
  function fetchCaloriesBurned(caloriesPerServing) {
+
      var caloriesBurnedUrl = "https://api.api-ninjas.com/v1/caloriesburned?activity=run";
      var options = {
          method: "GET",
@@ -53,9 +55,9 @@ function fetchRecipe() {
      .then(response => response.json())
      .then(data => {
        console.log(data)
-    //    Number currently hardcoded in for calories - calories variable not passing correctly at present
+     
     let caloriesPerHour = data[0].calories_per_hour;
-    let excerciseTime = Math.trunc((caloriesPerServing / caloriesPerHour) * 60)
+    let excerciseTime = Math.trunc((caloriesPerServing / caloriesPerHour) * 60) 
     timeToBurnContainerEl.innerHTML = `
     <h2 class="flex items-center justify-center align-center font-extrabold py-1 text-2xl dark:text-white"> You would have to walk for ${excerciseTime} minutes at a moderate pace to burn off these calories per serving!</h2>
     <i class="flex items-center justify-center fa-solid fa-clock fa-bounce text-8xl p-6 m-6"></i>
@@ -66,6 +68,7 @@ function fetchRecipe() {
 
  buttonEl.addEventListener("click", function(event) {
   event.preventDefault();
+  ParentContainerEl.classList.remove("invisible"); 
   userInput=formEl.value
   console.log(history)
   if (userInput==="") {

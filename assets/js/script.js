@@ -93,3 +93,9 @@ function dispHistory(pastRecipes) {
         }
     }
 searchHistory()
+
+let ClearHistoryBtn = document.querySelector("#clear-btn")
+ClearHistoryBtn.addEventListener("click", function() {
+    localStorage.clear();
+    historyDispEl.empty()
+})

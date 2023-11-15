@@ -34,7 +34,7 @@ function fetchRecipe() {
          <p class=font-bold flex items-center justify-center>Calories per serving: ${Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield)}</p>
          <p class=font-bold flex items-center justify-center"><a class = "underline dark:text-white hover:text-blue-800" href="${data.hits[i].recipe.url}" target="_blank">Link to Full Recipe & Further Nutritional Information</a></p>
          `  
-         caloriesPerServing = Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield)
+         let caloriesPerServing = Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield)
          fetchCaloriesBurned(caloriesPerServing)
          }
      })
@@ -85,6 +85,7 @@ function fetchRecipe() {
 
 $(document).on("click", ".past-recipe", pastSearch);
 function pastSearch() {
+    ParentContainerEl.classList.remove("invisible"); 
     userInput = $(this).attr("data-recipe")
     fetchRecipe()
 }

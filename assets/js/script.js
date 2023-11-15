@@ -33,14 +33,15 @@ function fetchRecipe() {
          <p class=font-bold flex items-center justify-center>Calories per serving: ${Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield)}</p>
          <p class=font-bold flex items-center justify-center"><a class = "underline dark:text-white hover:text-blue-800" href="${data.hits[i].recipe.url}" target="_blank">Link to Full Recipe & Further Nutritional Information</a></p>
          `  
+         caloriesPerServing = Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield)
+         fetchCaloriesBurned(caloriesPerServing)
          }
-         fetchCaloriesBurned(Math.floor(data.hits[i].recipe.calories/data.hits[i].recipe.yield));
      })
  }
 
  fetchRecipe();
  
- function fetchCaloriesBurned(calories) {
+ function fetchCaloriesBurned(caloriesPerServing) {
      var caloriesBurnedUrl = "https://api.api-ninjas.com/v1/caloriesburned?activity=run";
      var options = {
          method: "GET",
@@ -53,18 +54,16 @@ function fetchRecipe() {
      .then(data => {
        console.log(data)
     //    Number currently hardcoded in for calories - calories variable not passing correctly at present
-    var test = (data[0].calories_per_hour/data[0].duration_minutes)*400/60;
-    console.log(test);
+    let caloriesPerHour = data[0].calories_per_hour;
+    let excerciseTime = Math.trunc((caloriesPerServing / caloriesPerHour) * 60)
     timeToBurnContainerEl.innerHTML = `
-    <h2 class="flex items-center justify-center align-center font-extrabold py-1 text-2xl dark:text-white"> You would have to walk for ${Math.floor(test)} minutes at a moderate pace to burn off these calories per serving!</h2>
+    <h2 class="flex items-center justify-center align-center font-extrabold py-1 text-2xl dark:text-white"> You would have to walk for ${excerciseTime} minutes at a moderate pace to burn off these calories per serving!</h2>
     <i class="flex items-center justify-center fa-solid fa-clock fa-bounce text-8xl p-6 m-6"></i>
     <h1 class="flex items-center justify-center py-1 text-4xl font-extrabold dark:text-white underline decoration-solid decoration-yellow-300">Is it Worth it?</h1>
     `
      })
  }
 
- fetchCaloriesBurned();
- 
  buttonEl.addEventListener("click", function(event) {
   event.preventDefault();
   userInput=formEl.value
@@ -104,7 +103,7 @@ function dispHistory(pastRecipes) {
     for (let i = 0; i < pastRecipes.length; i++) {
         const pastRecipe = pastRecipes[i];
         console.log(pastRecipe)
-        historyDispEl.append($(`<button class="past-recipe btn bg-gradient-to-l from-cyan-500 to-blue-500 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded dark:hover:bg-gray-300" data-recipe="${pastRecipe}">`).text(pastRecipe));
+        historyDispEl.append($(`<button class="past-recipe btn bg-white text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded dark:hover:bg-gray-300" data-recipe="${pastRecipe}">`).text(pastRecipe));
         }
     }
 searchHistory()

@@ -27,8 +27,13 @@ https://api-ninjas.com/api/caloriesburned
 
 "https://docs.google.com/presentation/d/e/2PACX-1vRecmCDfaClcnmKHQI71C0XIP9vVrroblQudaFqW5jZekzy5wqaxZVT_OMG8DYYKi9OQdrkSRP4uMds/embed?start=false&loop=true&delayms=60000"
 
+# Screenshot of Finalised Application - Usage
+
+![img](/assets/images/Is%20it%20Worth%20it%20-%20usage.gif)
+
 # Link to Deployed Application
 
+https://tp4458.github.io/Bootcamp-Project-1/
 
 # Collaborators
 

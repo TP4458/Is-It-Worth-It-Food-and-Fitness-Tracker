@@ -33,7 +33,7 @@ https://api-ninjas.com/api/caloriesburned
 
 # Link to Deployed Application
 
-[https://tp4458.github.io/Is-It-Worth-It-Food-and-Fitness-Tracker/]
+[https://tp4458.github.io/Is-It-Worth-It-Food-and-Fitness-Tracker/](https://tp4458.github.io/Is-It-Worth-It-Food-and-Fitness-Tracker/)
 
 # Libraries/frameworks used:
 

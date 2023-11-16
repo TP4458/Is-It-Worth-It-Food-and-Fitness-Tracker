@@ -33,17 +33,18 @@ https://api-ninjas.com/api/caloriesburned
 
 # Link to Deployed Application
 
-[https://tp4458.github.io/Is-It-Worth-It-Food-and-Fitness-Tracker/](https://tp4458.github.io/Is-It-Worth-It-Food-and-Fitness-Tracker/)
+[https://tp4458.github.io/Is-It-Worth-It-Food-and-Fitness-Tracker/]
 
 # Libraries/frameworks used:
 
 - Tailwind
 - jQuery
+- Font Awesome
 
 # Future Development:
-- replace jQuery with vanila Java Script.
-- allow user to select excercise they want to display and calculate excercise time for.
-- have the page display multipe search results for a recipe.
+- replace jQuery with vanilla Java Script.
+- allow user to select exercise they want to display and calculate exercise time for.
+- have the page display multiple search results for a recipe.
 - limit the number of search history elements displayed.
 
 # Collaborators

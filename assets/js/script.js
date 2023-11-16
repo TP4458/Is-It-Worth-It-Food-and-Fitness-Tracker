@@ -17,15 +17,14 @@ const APIRecipeId = "b0bd96d2"
 const APIKeyRecipeBackUp = "a0145a19c538941a9ba859a3611ae804"
 const APIRecipeIdBackUp = "639c6b92"
 
+//fetch recipe data from the API
 function fetchRecipe() {
-  
     var recipeUrl = `https://api.edamam.com/search?q=${userInput}&app_id=${APIRecipeIdBackUp}&app_key=${APIKeyRecipeBackUp}&from=0&to=1`;
     fetch(recipeUrl)
      .then(response => response.json())
      .then(data => { 
-       console.log(data) 
+        //display elements in HTML. for loop used for future development possibilities.
        var i;
-       console.log(data.hits)
        for (i = 0; i <=data.hits.length; i++) {      
          recipeContainerEl.innerHTML = `
          <h2 class="flex items-center justify-center py-1 text-2xl font-extrabold dark:text-white">"${data.hits[i].recipe.label}"</h2>
@@ -40,10 +39,9 @@ function fetchRecipe() {
      })
  }
 
+//fetch excercise time data from the API
  fetchRecipe();
- 
- function fetchCaloriesBurned(caloriesPerServing) {
-
+  function fetchCaloriesBurned(caloriesPerServing) {
      var caloriesBurnedUrl = "https://api.api-ninjas.com/v1/caloriesburned?activity=run";
      var options = {
          method: "GET",
@@ -54,10 +52,10 @@ function fetchRecipe() {
      fetch(caloriesBurnedUrl, options)
      .then(response => response.json())
      .then(data => {
-       console.log(data)
-     
+    //calculate time of excercise
     let caloriesPerHour = data[0].calories_per_hour;
     let excerciseTime = Math.trunc((caloriesPerServing / caloriesPerHour) * 60) 
+    //create HTML elements
     timeToBurnContainerEl.innerHTML = `
     <h2 class="flex items-center justify-center align-center font-extrabold py-1 text-2xl dark:text-white"> You would have to walk for ${excerciseTime} minutes at a moderate pace to burn off these calories per serving!</h2>
     <i class="flex items-center justify-center fa-solid fa-clock fa-bounce text-8xl p-6 m-6"></i>
@@ -65,12 +63,11 @@ function fetchRecipe() {
     `
      })
  }
-
+//search button functionality
  buttonEl.addEventListener("click", function(event) {
   event.preventDefault();
   ParentContainerEl.classList.remove("invisible"); 
   userInput=formEl.value
-  console.log(history)
   if (userInput==="") {
     return
   }else{
@@ -82,7 +79,7 @@ function fetchRecipe() {
   searchHistory()
 })
 
-
+//click on search history functionality
 $(document).on("click", ".past-recipe", pastSearch);
 function pastSearch() {
     ParentContainerEl.classList.remove("invisible"); 
@@ -95,25 +92,25 @@ function searchHistory(){
     let searchHistory = localStorage.getItem("search-history");
     if (searchHistory) {
         history = JSON.parse(searchHistory);
-        console.log(history)
         dispHistory(history)
     }
 }
 
-let historyDispEl=$("#history")
 //display past search results
+let historyDispEl=$("#history")
 function dispHistory(pastRecipes) {
     historyDispEl.empty()
     for (let i = 0; i < pastRecipes.length; i++) {
         const pastRecipe = pastRecipes[i];
-        console.log(pastRecipe)
         historyDispEl.append($(`<button class="past-recipe btn bg-white text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded dark:hover:bg-gray-300" data-recipe="${pastRecipe}">`).text(pastRecipe));
         }
     }
 searchHistory()
 
+//clear seach history
 let ClearHistoryBtn = document.querySelector("#clear-btn")
 ClearHistoryBtn.addEventListener("click", function() {
     localStorage.clear();
     historyDispEl.empty()
+    history=[];
 })

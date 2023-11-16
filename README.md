@@ -1,4 +1,4 @@
-# “Is it Worth it?“: Food and Fitness Tracker
+# "Is it Worth it?": Food and Fitness Tracker
 
 # Project Description:
 
@@ -29,3 +29,7 @@ https://api-ninjas.com/api/caloriesburned
 
 # Link to Deployed Application
 
+
+# Collaborators
+
+Tomasz Pawlikowski, Lewis Reynolds, Graham McCulough, Zara Tomlinson, Fardowsa
